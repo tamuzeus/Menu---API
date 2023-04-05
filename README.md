@@ -8,22 +8,22 @@ API Menu, test for Node Developer.
 
 This API has the following routes:
 
-POST /auth/login:
-GET /category:
-GET /product:
-GET /product:id:
-POST /product:
-PATCH /product/:id:
-DELETE /product:id:
+1. POST /auth/login
+2. GET /category
+3. GET /product
+4. GET /product:id
+5. POST /product
+6. PATCH /product/:id
+7. DELETE /product:id
 
 Main technologies/Libs/Frameworks:
 
-Typescript - For static typing, interfaces, and classes. In other words, for greater security and predictability.
-Bcrypt - Cryptography for securely storing passwords using hash and salt functions.
-Node - A great runtime environment for creating scalable and efficient server-side applications with JS.
-joi - It's a data validation library that facilitates code reading and prevents the addition of errors or bugs in the database.
-JWT - For secure and scalable user authentication.
-MongoDB - Schema flexibility and support for real-time operations on unstructured and semi-structured data.
+1. Typescript - For static typing, interfaces, and classes. In other words, for greater security and predictability.
+2. Bcrypt - Cryptography for securely storing passwords using hash and salt functions.
+3. Node - A great runtime environment for creating scalable and efficient server-side applications with JS.
+4. joi - It's a data validation library that facilitates code reading and prevents the addition of errors or bugs in the database.
+5. JWT - For secure and scalable user authentication.
+6. MongoDB - Schema flexibility and support for real-time operations on unstructured and semi-structured data.
 
 ## How to run for development
 
@@ -34,10 +34,15 @@ MongoDB - Schema flexibility and support for real-time operations on unstructure
 npm i
 ```
 
-3. Create a MongoDB database with whatever name you want
-4. Configure the `.env` file using the `.env.example` 
+3. 
 
-5. Run the back-end in a development environment:
+4. 
+
+5.  
+
+6. Configure the `.env` file using the `.env.example` 
+
+7. Run the back-end in a development environment:
 
 ```bash
 npm run dev
