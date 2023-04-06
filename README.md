@@ -34,13 +34,13 @@ Main technologies/Libs/Frameworks:
 npm i
 ```
 
-3. 
+3. Configure the `.env` file using the `.env.example` 
 
 4. 
 
 5.  
 
-6. Configure the `.env` file using the `.env.example` 
+6. Inicie o servidor `mongo`, por exemplo: `mongod --dbpath ~/.mongo`
 
 7. Run the back-end in a development environment:
 
