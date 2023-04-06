@@ -1,11 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import userRouter from './routers/user.router'
 
 dotenv.config();
 
 const app = express();
 app.use(express.json())
-    .get('/health', (_req, res) => res.send('OK!'))
+    .get('/status', (_req, res) => res.send('OK!'))
+    .use('/', userRouter)
+
+const conn = require("./db/db")
+conn();
 
 const port = process.env.MONGODB_PORT || 5000;
 app.listen(port, () => console.log(`Server running in port: ${port}`));
