@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import userRouter from './routers/user.router'
+import categoryRouter from './routers/category.router'
 
 dotenv.config();
 
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json())
     .get('/status', (_req, res) => res.send('OK!'))
     .use('/', userRouter)
+    .use('/', categoryRouter)
 
 const conn = require("./db/db")
 conn();

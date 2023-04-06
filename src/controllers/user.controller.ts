@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-async function createUser(req: Request, res: Response): Promise<void> {
+async function createUser(req: Request, res: Response){
 
   const { email, password } = req.body;
 
@@ -16,8 +16,19 @@ async function createUser(req: Request, res: Response): Promise<void> {
   }
 }
 
+async function createLogin(req: Request, res: Response){
+
+  const { email, password } = req.body;
+
+  try {
+    const token = await UserService.createLoginService(email, password);
+    res.status(201).json({ token });
+  } catch (error: any) {
+    res.status(400).json({ message: error.message });
+  }
+}
 
 
 export const UserController = {
-  createUser,
+  createUser, createLogin
 };
