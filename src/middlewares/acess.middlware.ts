@@ -6,16 +6,16 @@ dotenv.config();
 const SECRET = process.env.JWT_SECRET ?? 'default_secret';
 
 export function authenticateToken(req: Request, res: Response, next: NextFunction) {
-  //recive
-    const authHeader = req.headers['authorization']; 
+    //recive
+    const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
-    
+
     if (!token) {
         return res.status(401).json({ message: 'Missing auth token' });
     }
 
     try {
-      //decode
+        //decode
         const decodedToken = jwt.verify(token, SECRET) as { userId: number };
         const userId = decodedToken.userId;
         req.body.userId = userId;

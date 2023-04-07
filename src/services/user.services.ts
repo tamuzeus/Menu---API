@@ -33,7 +33,6 @@ async function createLoginService(email: string, password: string) {
 
     const newUser = await UserRepository.loginUserRepository(email, password);
     const token = createJwtToken(newUser._id.toString());
-    console.log(newUser)
     return token;
 }
 

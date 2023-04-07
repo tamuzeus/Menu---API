@@ -1,5 +1,5 @@
 import { hashPassword, comparePassword } from '../Utils/bcrypt.password.util';
-import { UserModel, User } from '../models/user.model';
+import { UserModel } from '../models/user.model';
 
 async function createUserRepository(email: string, password: string) {
   const hashedPassword = await hashPassword(password);
@@ -22,7 +22,6 @@ async function loginUserRepository(email: string, password: string) {
   }
   return user;
 }
-
 
 export const UserRepository = {
   createUserRepository, loginUserRepository

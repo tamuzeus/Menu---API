@@ -1,10 +1,7 @@
 import { Request, Response } from 'express';
 import { UserService } from '../services/user.services';
-import dotenv from 'dotenv';
 
-dotenv.config();
-
-async function createUser(req: Request, res: Response){
+async function createUser(req: Request, res: Response) {
 
   const { email, password } = req.body;
 
@@ -16,7 +13,7 @@ async function createUser(req: Request, res: Response){
   }
 }
 
-async function createLogin(req: Request, res: Response){
+async function createLogin(req: Request, res: Response) {
 
   const { email, password } = req.body;
 
