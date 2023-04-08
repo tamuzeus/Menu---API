@@ -9,7 +9,7 @@ API tem como função gerenciar um cardápio online!
 Esta API possui as seguintes rotas:
 
 1. POST /signUp --- Criação de usuário na DB. 
-2. POST /auth/login --- Login do usuário a qual receberá um token(JWT) que deverá ser adicionado como Bearer Token ao header.\
+2. POST /auth/login --- Login do usuário, este que receberá um retorno: token(JWT).\
 `Rotas autenticadas:` 
 4. GET /category --- Recebimento de todas categorias disponíveis na DB
 5. GET /product --- Recebimendo de todos produtos disponíveis na DB
