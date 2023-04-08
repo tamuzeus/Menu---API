@@ -11,3 +11,14 @@ export const productSchema = Joi.object({
   price: Joi.number().precision(2).positive().required(),
 });
 
+export const productSchemaUpdate = Joi.object({
+  categories: Joi.array().items(Joi.object({
+    _id: Joi.string(),
+    parent: Joi.string().allow(''),
+    name: Joi.string(),
+  })),
+  name: Joi.string(),
+  qty: Joi.number().integer().min(1),
+  price: Joi.number().precision(2).positive(),
+});
+

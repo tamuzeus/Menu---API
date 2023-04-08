@@ -2,7 +2,7 @@ import mongoose, { Document, Model } from 'mongoose';
 
 export interface Category extends Document {
   _id: string
-  parent: string;
+  parent: string | null;
   name: string;
 }
 

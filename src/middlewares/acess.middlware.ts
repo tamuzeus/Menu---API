@@ -15,7 +15,7 @@ export function authenticateToken(req: Request, res: Response, next: NextFunctio
     }
 
     try {
-        //decode
+        //Fazer decode
         const decodedToken = jwt.verify(token, SECRET) as { userId: number };
         const userId = decodedToken.userId;
         req.body.userId = userId;
