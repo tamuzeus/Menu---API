@@ -1,21 +1,23 @@
 # Menu-API
 
 API Menu, teste para Desenvolvedor Node.
+API tem como função gerenciar um cardápio online!
 :)
 
-## About
+## Sobre:
 
 Esta API possui as seguintes rotas:
 
 1. POST /signUp --- Criação de usuário na DB. 
 2. POST /auth/login --- Login do usuário a qual receberá um token(JWT) que deverá ser adicionado como Bearer Token ao header.
+<br />
 `Rotas autenticadas:` 
-3. GET /category --- Recebimento de todas categorias disponíveis na DB
-4. GET /product --- Recebimendo de todos produtos disponíveis na DB
-5. GET /product/:id --- Recebimendo do produto de acordo com o Id na DB
-6. POST /product --- Criação de um produto na DB
-7. PATCH /product/:id --- Atualização de um produto na DB
-8. DELETE /product/:id --- Remoção de um produto na DB
+4. GET /category --- Recebimento de todas categorias disponíveis na DB
+5. GET /product --- Recebimendo de todos produtos disponíveis na DB
+6. GET /product/:id --- Recebimendo do produto de acordo com o Id na DB
+7. POST /product --- Criação de um produto na DB
+8. PATCH /product/:id --- Atualização de um produto na DB
+9. DELETE /product/:id --- Remoção de um produto na DB
 
 Principais tecnologias/bibliotecas/frameworks:
 
