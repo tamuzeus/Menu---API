@@ -7,7 +7,7 @@ export interface Product {
   name: string;
   qty: number;
   price: number;
-}
+};
 
 export interface ProductUpdate {
   id?: string;
@@ -15,7 +15,7 @@ export interface ProductUpdate {
   name?: string;
   qty?: number;
   price?: number;
-}
+};
 
 const productMongooseSchema = new mongoose.Schema<Product>({
   id: { type: String, required: false },
@@ -24,6 +24,5 @@ const productMongooseSchema = new mongoose.Schema<Product>({
   qty: { type: Number, required: true },
   price: { type: Number, required: true }
 });
-
 
 export const ProductModel: Model<Product> = mongoose.model<Product>('Product', productMongooseSchema, 'products');

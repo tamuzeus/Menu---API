@@ -1,13 +1,15 @@
 import express from 'express';
-import { ProductController } from '../controllers/product.controller';
-import authenticateToken from '../middlewares/acess.middlware';
+import { ProductController } from '../controllers';
+import { authenticateToken } from '../middlewares';
 
 const productRouter = express.Router();
 
-productRouter.post('/product', authenticateToken, ProductController.createProduct)
-    .get('/product', authenticateToken, ProductController.getAllProducts)
-    .get('/product/:id', authenticateToken, ProductController.getProductById)
-    .patch('/product/:id', authenticateToken, ProductController.updateProduct)
-    .delete('/product/:id', authenticateToken, ProductController.deleteProduct)
+productRouter
+    .all('/', authenticateToken)
+    .post('/', ProductController.createProduct)
+    .get('/', ProductController.getAllProducts)
+    .get('/:id', ProductController.getProductById)
+    .patch('/:id', ProductController.updateProduct)
+    .delete('/:id', ProductController.deleteProduct);
 
-export default productRouter;
+export { productRouter };

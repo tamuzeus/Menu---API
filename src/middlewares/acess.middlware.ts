@@ -23,9 +23,7 @@ export function authenticateToken(req: Request, res: Response, next: NextFunctio
         next();
     } catch (err) {
         return res.status(403).json({ message: 'Invalid auth token' });
-    }
-}
-
-
+    };
+};
 
 export default authenticateToken;

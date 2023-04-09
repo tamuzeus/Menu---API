@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
 const saltRoundsString = process.env.CRYPT;
 if (!saltRoundsString) {
   throw new Error('CRYPT environment variable not defined');
-}
+};
 const saltRounds = parseInt(saltRoundsString, 10);
 
 export const hashPassword = async (password: string): Promise<string> => {

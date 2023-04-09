@@ -4,7 +4,7 @@ export interface Category extends Document {
   _id: string
   parent: string | null;
   name: string;
-}
+};
 
 const categoryMongooseSchema = new mongoose.Schema<Category>({
   _id: { type: String, required: true },

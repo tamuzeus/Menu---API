@@ -1,5 +1,6 @@
-import { hashPassword, comparePassword } from '../Utils/bcrypt.password.util';
-import { UserModel } from '../models/user.model';
+import { hashPassword, comparePassword } from '../utils/bcrypt.password.util';
+import { UserModel } from '../models';
+import { incorrectEmailOrPassword } from '../errors';
 
 async function createUserRepository(email: string, password: string) {
   const hashedPassword = await hashPassword(password);
@@ -7,21 +8,23 @@ async function createUserRepository(email: string, password: string) {
     email: email,
     password: hashedPassword,
   };
+
   return UserModel.create(userWithHashedPassword);
-}
+};
 
 async function loginUserRepository(email: string, password: string) {
   const user = await UserModel.findOne({ email });
   if (!user) {
-    throw new Error('Incorrect email or password');
-  }
+    throw incorrectEmailOrPassword();
+  };
 
   const passwordMatch = await comparePassword(password, user.password);
   if (!passwordMatch) {
-    throw new Error('Incorrect email or password');
-  }
+    throw incorrectEmailOrPassword();
+  };
+
   return user;
-}
+};
 
 export const UserRepository = {
   createUserRepository, loginUserRepository

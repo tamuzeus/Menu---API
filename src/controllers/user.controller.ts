@@ -1,30 +1,35 @@
 import { Request, Response } from 'express';
-import { UserService } from '../services/user.services';
+import { UserService } from '../services';
+import httpStatus from 'http-status';
 
 async function createUser(req: Request, res: Response) {
-
-  const { email, password } = req.body;
-
   try {
-    const token = await UserService.createUserService(email, password);
-    res.status(201).json({ token });
-  } catch (error: any) {
+    const { email, password } = req.body;
+    const user = await UserService.createUserService(email, password);
+    res.status(201).json({ user });
+  } catch (error) {
+    if (error.name === 'emailIsAlReadyRegistered') {
+      return res.status(httpStatus.CONFLICT).send(error.message);
+    };
     res.status(400).json({ message: error.message });
-  }
-}
+  };
+};
 
 async function createLogin(req: Request, res: Response) {
-
-  const { email, password } = req.body;
-
   try {
+    const { email, password } = req.body;
     const token = await UserService.createLoginService(email, password);
     res.status(201).json({ token });
-  } catch (error: any) {
+  } catch (error) {
+    if (error.name === 'emailIsNotRegistered') {
+      return res.status(httpStatus.NOT_FOUND).send(error.message);
+    };
+    if (error.name === 'incorrectEmailOrPassword') {
+      return res.status(httpStatus.UNAUTHORIZED).send(error.message);
+    };
     res.status(400).json({ message: error.message });
-  }
-}
-
+  };
+};
 
 export const UserController = {
   createUser, createLogin

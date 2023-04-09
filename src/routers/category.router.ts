@@ -1,9 +1,11 @@
 import express from 'express';
-import { CategoryController } from '../controllers/category.controller';
-import { authenticateToken } from '../middlewares/acess.middlware';
+import { CategoryController } from '../controllers';
+import { authenticateToken } from '../middlewares';
 
 const categoryRouter = express.Router();
 
-categoryRouter.get('/category', authenticateToken, CategoryController.getAllCategories);
+categoryRouter
+    .all('/', authenticateToken)
+    .get('/', CategoryController.getAllCategories);
 
-export default categoryRouter;
+export { categoryRouter };
