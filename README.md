@@ -51,6 +51,16 @@ npm i
 npm run dev, npm run watch ou npm run redist
 ```
 
+## Como executar testes:
+
+1. Configure o arquivo `.env` usando o `.env.example`.
+
+2. Execute os testes em um ambiente de desenvolvimento:
+
+```bash
+npm run test ou npx jest
+```
+
 ## Informações do banco:
 
 1. Database name utilizada foi `Menu`, está pode ser definida e alterada no `.env`
