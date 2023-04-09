@@ -14,6 +14,7 @@ app.use(express.json())
     .use('/product', productRouter);
 
 connect();
+export default app
 
 const port = process.env.MONGODB_PORT || 5000;
 app.listen(port, () => console.log(`Server running in port: ${port}`));

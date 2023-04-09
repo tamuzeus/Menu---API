@@ -62,8 +62,6 @@ async function createProduct(productData: Product) {
             const categoryId = category._id;
             const categoryParent = category.parent;
             let foundCategory;
-            console.log(categoryParent)
-            console.log(body.categories?.[0]?.parent?.toString())
 
             if (categoryParent !== null) {
                 foundCategory = await CategoryModel.findOne({ _id: categoryParent });
@@ -181,8 +179,6 @@ async function updateProduct(id: string, updatedProduct: ProductUpdate) {
             const categoryId = category._id;
             const categoryParent = category.parent;
             let foundCategory;
-            console.log(categoryParent)
-            console.log(body.categories?.[0]?.parent?.toString())
 
             if (categoryParent !== null) {
                 foundCategory = await CategoryModel.findOne({ _id: categoryParent });
