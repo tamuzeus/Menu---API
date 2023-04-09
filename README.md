@@ -53,7 +53,7 @@ npm run dev, npm run watch ou npm run redist
 
 ## Informações do banco:
 
-1. A database utilizada foi `Menu`, está é definida no env
+1. A database utilizada foi `Menu`, está pode ser definida e alterada no `.env`
 2. Foi divida em 3 collections, caso nescessário poderiam ser mais(como a que pode armazenar token do user criptografado):
 
 1. users
