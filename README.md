@@ -6,7 +6,7 @@ API tem como função gerenciar um cardápio online!
 
 ## Sobre:
 
-`Esta API possui as seguintes rotas:`
+Esta API possui as seguintes rotas:
 
 `Rotas abertas:`
 
