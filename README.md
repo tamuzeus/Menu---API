@@ -6,14 +6,14 @@ API tem como função gerenciar um cardápio online!
 
 ## Sobre:
 
-Esta API possui as seguintes rotas:
+`Esta API possui as seguintes rotas:`
+
+`Rotas abertas:`
 
 1. POST /signUp --- Criação de usuário na DB. 
 2. POST /auth/login --- Login do usuário, este que receberá um retorno: token(JWT).
    
-   
 `Rotas autenticadas:` 
-
 
 1. GET /category --- Recebimento de todas categorias disponíveis na DB
 2. GET /product --- Recebimendo de todos produtos disponíveis na DB
@@ -22,7 +22,7 @@ Esta API possui as seguintes rotas:
 5. PATCH /product/:id --- Atualização de um produto na DB
 6. DELETE /product/:id --- Remoção de um produto na DB
 
-Principais tecnologias/bibliotecas/frameworks:
+`Principais tecnologias/bibliotecas/frameworks:`
 
 1. Typescript - Para tipagem estática, interfaces e classes. Em outras palavras, para maior segurança e previsibilidade.
 2. Bcrypt - Criptografia para armazenar senhas com segurança usando funções hash e salt.
@@ -54,7 +54,7 @@ npm run dev, npm run watch ou npm run redist
 ```
 ## Formato dos envios/retornos:
 
-POST /signUp
+`POST /signUp`
 
 1. Envio
 
@@ -73,7 +73,7 @@ POST /signUp
 }
 ```
 
-POST /auth/login
+`POST /auth/login`
 
 1. Envio
 
@@ -94,7 +94,7 @@ O token tem duração de 1h.
 }
 ```
 
-GET /category
+`GET /category`
 
 1. Retorno
 
@@ -124,7 +124,7 @@ GET /category
 ```
 
 
-GET /product
+`GET /product`
 
 1. Retorno
 
@@ -179,7 +179,7 @@ GET /product
   }
 ```
 
-GET /product/:id
+`GET /product/:id`
 
 1. Retorno
 
@@ -202,7 +202,7 @@ GET /product/:id
 }
 ```
 
-POST /product
+`POST /product`
 
 1. Envio
 
@@ -242,7 +242,7 @@ POST /product
 ```
 
 
-PATCH /product/:id
+`PATCH /product/:id`
 
 O envio de PATCH é bem diverso. Um campo não depende do outro para ser atualizado, sendo assim, você pode enviar apenas o "price", "qty", "categories", "categories.name", "name" e afins, por exemplo, e assim a estrutura será atualizada! Cada estrutura de atualização é independente!
 
@@ -302,7 +302,7 @@ O envio de PATCH é bem diverso. Um campo não depende do outro para ser atualiz
 }
 ```
 
-DELETE /product/:id
+`DELETE /product/:id`
 
 1. Retorno
 
