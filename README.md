@@ -61,6 +61,14 @@ POST /signUp
 }
 ```
 
+2. Retorno
+
+```
+{
+  "user": "User \"admin@gmail.com\" created!"
+}
+```
+
 POST /auth/login
 
 1. Envio
@@ -69,13 +77,6 @@ POST /auth/login
 {
     "email": "admin@gmail.com",
     "password": "admin12"
-}
-```
-
-
-```
-{
-  "user": "User \"admin@gmail.com\" created!"
 }
 ```
 
