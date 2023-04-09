@@ -6,8 +6,6 @@ API tem como função gerenciar um cardápio online!
 
 ## Sobre:
 
-Esta API possui as seguintes rotas:
-
 `Rotas abertas:`
 
 1. POST /signUp --- Criação de usuário na DB. 
@@ -52,6 +50,43 @@ npm i
 ```bash
 npm run dev, npm run watch ou npm run redist
 ```
+
+## Informações do banco:
+
+1. A database utilizada foi `Menu`, está é definida no env
+2. Foi divida em 3 collections, caso nescessário poderiam ser mais(como a que pode armazenar token do user criptografado):
+
+1. users
+
+```
+_id: 6431d9b9e726c78255caaf45
+email: exemple@testemail.com
+password: 123123
+```
+
+2. categories
+
+```
+_id: alcoolicas
+parent: bebidas
+name: Bebidas Alcoólicas
+```
+
+
+3. products
+
+```
+_id: "642fc0da7e293a2cce660615"
+categories: [{
+        "_id": "comidas",
+        "parent": null,
+        "name": "Comidas"
+      }]
+name: Vinho Seco
+qty: 30
+price: 20.4
+```
+
 ## Formato dos envios/retornos:
 
 `POST /signUp`
