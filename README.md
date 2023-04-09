@@ -71,6 +71,14 @@ POST /auth/login
     "password": "admin12"
 }
 ```
+
+
+```
+{
+  "user": "User \"admin@gmail.com\" created!"
+}
+```
+
 2. Retorno
 
 O token tem duração de 1h.
