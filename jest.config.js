@@ -1,3 +1,5 @@
+require('dotenv').config({ path: '.env.test' });
+
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
@@ -6,4 +8,5 @@ module.exports = {
     ".+\\.ts$": "ts-jest",
   },
   testMatch: ["<rootDir>/tests/*/*.(test|spec).ts"],
+  restoreMocks: true,
 };
