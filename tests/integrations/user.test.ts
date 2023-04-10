@@ -5,12 +5,13 @@ import httpStatus from 'http-status';
 import { connect } from '../../src/db/db';
 import { clearDb } from '../factories';
 
-describe('POST /auth/login', () => {
+describe('POST /signUp', () => {
     beforeAll(async () => {
         await connect();
+        await clearDb();
     });
 
-    beforeEach(async () => {
+    afterEach(async () => {
         await clearDb();
     });
 

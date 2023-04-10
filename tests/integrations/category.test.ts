@@ -7,6 +7,7 @@ import { connect } from '../../src/db/db';
 describe('POST /auth/login', () => {
   beforeAll(async () => {
     await connect();
+    await clearDb();
   });
 
   beforeEach(async () => {

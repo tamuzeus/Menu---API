@@ -8,15 +8,17 @@ import { connect } from '../../src/db/db';
 describe('POST /auth/login', () => {
     beforeAll(async () => {
         await connect();
+        await clearDb();
     });
 
-    beforeEach(async () => {
+    afterEach(async () => {
         await clearDb();
     });
 
     it('should return a JWT token if email and password are correct', async () => {
         const response = await returnToken();
         expect(response).toHaveProperty('token');
+        await clearDb();
     });
 
     it('should return a 404 error if email is not registered', async () => {
@@ -28,6 +30,7 @@ describe('POST /auth/login', () => {
             .expect(httpStatus.NOT_FOUND);
 
         expect(response.text).toBe('Email is not registered!');
+        await clearDb();
     });
 
     it('should return a 401 error if password is incorrect', async () => {
@@ -40,5 +43,6 @@ describe('POST /auth/login', () => {
             .expect(httpStatus.UNAUTHORIZED);
 
         expect(response.text).toBe('Incorrect email or password!');
+        await clearDb();
     });
 });
