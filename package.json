@@ -5,11 +5,11 @@
   "main": "dist/app.js",
   "type": "commonjs",
   "scripts": {
-    "test": "npx jest",
+    "test": "jest",
     "dev": "nodemon --inspect dist/app.js",
     "start": "node dist/app.js",
-    "redist": "npx ts-node src/app.ts",
-    "watch": "npx nodemon src/app.ts"
+    "redist": "npx ts-node src/server.ts",
+    "watch": "npx nodemon src/server.ts"
   },
   "author": "",
   "license": "ISC",
