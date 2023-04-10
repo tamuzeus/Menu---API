@@ -2,7 +2,7 @@ import { Product, ProductModel, ProductUpdate, CategoryModel } from '../models';
 import { Types } from 'mongoose';
 import { invalidCategory, invalidId, invalidProductId, productIdNotFound } from '../errors';
 
-async function createProduct(productData: Product) {
+async function createProduct(productData: Product): Promise<Product> {
   const categories = await CategoryModel.find({ _id: { $in: productData.categories } });
 
   if (!categories.length) {
@@ -17,7 +17,7 @@ async function createProduct(productData: Product) {
   return product.save();
 };
 
-async function getAllProducts() {
+async function getAllProducts(): Promise<Product[]> {
   const products = await ProductModel.find({})
     .populate({ path: 'categories', model: 'Category' })
     .exec();
@@ -25,7 +25,7 @@ async function getAllProducts() {
   return products;
 };
 
-async function getProductById(id: string) {
+async function getProductById(id: string): Promise<Product> {
   if (!Types.ObjectId.isValid(id)) {
     throw invalidId(id);
   };
@@ -41,7 +41,7 @@ async function getProductById(id: string) {
   return product;
 };
 
-async function updateProductById(id: string, updatedProduct: ProductUpdate) {
+async function updateProductById(id: string, updatedProduct: ProductUpdate): Promise<ProductUpdate> {
   const updatedFields = {
     categories: updatedProduct.categories,
     name: updatedProduct.name,
@@ -62,7 +62,7 @@ async function updateProductById(id: string, updatedProduct: ProductUpdate) {
   return updatedProductDoc.toObject();
 };
 
-async function deleteProductById(id: string) {
+async function deleteProductById(id: string): Promise<String> {
   const result = await ProductModel.deleteOne({ _id: id });
 
   if (result.deletedCount === 0) {

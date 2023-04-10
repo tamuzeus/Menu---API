@@ -1,6 +1,6 @@
-import { CategoryModel } from '../models';
+import { CategoryModel, Category } from '../models';
 
-async function getAllCategories() {
+async function getAllCategories(): Promise<Category[]> {
   const categories = await CategoryModel.find({});
   return categories;
 };

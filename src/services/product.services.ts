@@ -3,7 +3,7 @@ import { productSchema, productSchemaUpdate } from '../schemas';
 import { ProductRepository } from '../repositories';
 import { productNameIsAlReadyRegistered, categoryIdDoesNotExist, cannotGetAllProducts, productIdNotFound, pricesCannotBeNegative, quantityCannotBeNegative, categoryNameDoesNotExist, categoryNameDoesNotExistInThisID, categoryParentDoesNotExistInThisID } from '../errors';
 
-async function createProduct(productData: Product) {
+async function createProduct(productData: Product): Promise<Product> {
     const body = {
         categories: productData.categories,
         name: productData.name,
@@ -89,7 +89,7 @@ async function createProduct(productData: Product) {
     return newProduct;
 };
 
-async function getAllProducts() {
+async function getAllProducts(): Promise<Product[]> {
     const products = await ProductRepository.getAllProducts();
     if (!products) {
         throw cannotGetAllProducts();
@@ -98,7 +98,7 @@ async function getAllProducts() {
     return products;
 };
 
-async function getProductById(id: string) {
+async function getProductById(id: string): Promise<Product> {
     const product = await ProductRepository.getProductById(id);
     if (!product) {
         throw productIdNotFound(id);
@@ -106,7 +106,7 @@ async function getProductById(id: string) {
     return product;
 };
 
-async function updateProduct(id: string, updatedProduct: ProductUpdate) {
+async function updateProduct(id: string, updatedProduct: ProductUpdate): Promise<ProductUpdate> {
     //Remove o userId
     const body = {
         categories: updatedProduct.categories,
@@ -211,7 +211,7 @@ async function updateProduct(id: string, updatedProduct: ProductUpdate) {
     return updatedProductDoc;
 };
 
-async function deleteProductById(id: string) {
+async function deleteProductById(id: string): Promise<String> {
     const products = await ProductRepository.getProductById(id);
     if (!products) {
         throw productIdNotFound(id);

@@ -74,7 +74,7 @@ async function updateProduct(req: Request, res: Response) {
     if (error.name === 'productNameIsAlReadyRegistered') {
       return res.status(httpStatus.CONFLICT).send(error.message);
     };
-    res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: `Failure: ${error}` });
+    res.status(httpStatus.INTERNAL_SERVER_ERROR).send(error.message);
   };
 };
 

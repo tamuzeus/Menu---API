@@ -1,10 +1,10 @@
-import { UserModel } from '../models';
+import { User, UserModel } from '../models';
 import { createJwtToken } from '../jwt';
 import { UserRepository } from '../repositories';
 import { userSchema } from '../schemas';
 import { emailIsAlReadyRegistered, emailIsNotRegistered } from '../errors';
 
-async function createUserService(email: string, password: string) {
+async function createUserService(email: string, password: string): Promise<User> {
     const { error } = userSchema.validate({ email, password });
     if (error) {
         throw new Error(error.message);
@@ -16,10 +16,10 @@ async function createUserService(email: string, password: string) {
     };
 
     const newUser = await UserRepository.createUserRepository(email, password);
-    return `User "${newUser.email}" created!`;
+    return newUser;
 };
 
-async function createLoginService(email: string, password: string) {
+async function createLoginService(email: string, password: string): Promise<String> {
     const { error } = userSchema.validate({ email, password });
     if (error) {
         throw new Error(error.message);

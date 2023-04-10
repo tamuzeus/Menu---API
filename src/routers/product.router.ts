@@ -4,8 +4,9 @@ import { authenticateToken } from '../middlewares';
 
 const productRouter = express.Router();
 
+productRouter.use(authenticateToken);
+
 productRouter
-    .all('/', authenticateToken)
     .post('/', ProductController.createProduct)
     .get('/', ProductController.getAllProducts)
     .get('/:id', ProductController.getProductById)

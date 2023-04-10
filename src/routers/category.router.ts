@@ -4,8 +4,9 @@ import { authenticateToken } from '../middlewares';
 
 const categoryRouter = express.Router();
 
+categoryRouter.use(authenticateToken);
+
 categoryRouter
-    .all('/', authenticateToken)
     .get('/', CategoryController.getAllCategories);
 
 export { categoryRouter };
