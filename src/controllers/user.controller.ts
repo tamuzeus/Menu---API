@@ -6,12 +6,12 @@ async function createUser(req: Request, res: Response) {
   try {
     const { email, password } = req.body;
     const user = await UserService.createUserService(email, password);
-    res.status(201).json({ user });
+    res.status(httpStatus.CREATED).json({ user });
   } catch (error) {
     if (error.name === 'emailIsAlReadyRegistered') {
       return res.status(httpStatus.CONFLICT).send(error.message);
     };
-    res.status(400).json({ message: error.message });
+    res.status(httpStatus.BAD_REQUEST).json({ message: error.message });
   };
 };
 
@@ -19,7 +19,7 @@ async function createLogin(req: Request, res: Response) {
   try {
     const { email, password } = req.body;
     const token = await UserService.createLoginService(email, password);
-    res.status(201).json({ token });
+    res.status(httpStatus.CREATED).json({ token });
   } catch (error) {
     if (error.name === 'emailIsNotRegistered') {
       return res.status(httpStatus.NOT_FOUND).send(error.message);
@@ -27,7 +27,7 @@ async function createLogin(req: Request, res: Response) {
     if (error.name === 'incorrectEmailOrPassword') {
       return res.status(httpStatus.UNAUTHORIZED).send(error.message);
     };
-    res.status(400).json({ message: error.message });
+    res.status(httpStatus.BAD_REQUEST).json({ message: error.message });
   };
 };
 

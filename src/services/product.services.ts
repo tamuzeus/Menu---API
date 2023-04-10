@@ -99,11 +99,11 @@ async function getAllProducts() {
 };
 
 async function getProductById(id: string) {
-    const products = await ProductRepository.getProductById(id);
-    if (!products) {
+    const product = await ProductRepository.getProductById(id);
+    if (!product) {
         throw productIdNotFound(id);
     }
-    return products;
+    return product;
 };
 
 async function updateProduct(id: string, updatedProduct: ProductUpdate) {

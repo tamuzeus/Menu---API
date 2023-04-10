@@ -9,3 +9,4 @@ categoryRouter
     .get('/', CategoryController.getAllCategories);
 
 export { categoryRouter };
+

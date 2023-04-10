@@ -5,12 +5,12 @@ import httpStatus from 'http-status';
 async function getAllCategories(req: Request, res: Response) {
   try {
     const result = await CategoryService.getAllCategories();
-    res.status(200).json(result);
+    res.status(httpStatus.OK).json(result);
   } catch (error) {
     if (error.name === 'cannotGetAllCategories') {
       return res.status(httpStatus.NOT_FOUND).send(error.message)
     };
-    res.status(500).json({ message: error.message });
+    res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: error.message });
   };
 };
 

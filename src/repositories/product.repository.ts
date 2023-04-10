@@ -69,9 +69,9 @@ async function deleteProductById(id: string) {
     throw productIdNotFound(id);
   };
 
-  const finalResult = `Product with id ${id} has been deleted`;
-  return finalResult;
+  return `Product with id ${id} has been deleted`;
 };
+
 
 export const ProductRepository = {
   createProduct, getAllProducts, getProductById, updateProductById, deleteProductById

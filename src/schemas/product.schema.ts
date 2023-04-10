@@ -21,4 +21,3 @@ export const productSchemaUpdate = Joi.object({
   qty: Joi.number().integer().min(1),
   price: Joi.number().precision(2).positive(),
 });
-

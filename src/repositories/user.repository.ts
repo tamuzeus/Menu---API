@@ -8,7 +8,6 @@ async function createUserRepository(email: string, password: string) {
     email: email,
     password: hashedPassword,
   };
-
   return UserModel.create(userWithHashedPassword);
 };
 
@@ -22,7 +21,6 @@ async function loginUserRepository(email: string, password: string) {
   if (!passwordMatch) {
     throw incorrectEmailOrPassword();
   };
-
   return user;
 };
 

@@ -3,6 +3,6 @@ import { ApplicationError } from '../models';
 export function emailIsNotRegistered(): ApplicationError {
   return {
     name: 'emailIsNotRegistered',
-    message: 'Email is not registed!',
+    message: 'Email is not registered!',
   };
 }
