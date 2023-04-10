@@ -1,46 +1,41 @@
 import app from '../../src/app';
 import { UserModel } from '../../src/models';
-import supertest from 'supertest';
+import request from 'supertest';
+import httpStatus from 'http-status';
+import { connect } from '../../src/db/db';
+import { clearDb } from '../factories';
 
-const request = supertest(app);
-let server: any;
-
-describe('POST /signUp', () => {
+describe('POST /auth/login', () => {
     beforeAll(async () => {
-        server = app.listen();
+        await connect();
     });
 
-    afterAll(async () => {
-        await server.close();
-    });
-
-    afterEach(async () => {
-        await UserModel.deleteMany({});
+    beforeEach(async () => {
+        await clearDb();
     });
 
     it('should create a new user', async () => {
         const email = 'test@test.com';
         const password = 'password';
-        const emailRegex = /"([^"]+)"/; // expressão regular para capturar o endereço de e-mail entre as aspas duplas
+        const emailRegex = /"([^"]+)"/;
 
-        const response = await request
+        const response = await request(app)
             .post('/signUp')
             .send({ email, password })
-            .expect(201);
+            .expect(httpStatus.CREATED);
         const responseText = response.body.user;
         const match = responseText.match(emailRegex);
-        const userEmail = match ? match[1] : null; // extrai o endereço de e-mail capturado ou define como null se não houver correspondência
+        const userEmail = match ? match[1] : null;
         expect(userEmail).toBe(email);
     });
-
 
     it('should return a 400 error if email is missing', async () => {
         const password = 'password';
 
-        const response = await request
+        const response = await request(app)
             .post('/signUp')
             .send({ password })
-            .expect(400);
+            .expect(httpStatus.BAD_REQUEST);
 
         expect(response.body.message).toBe('"\email\" is required');
     });
@@ -48,10 +43,10 @@ describe('POST /signUp', () => {
     it('should return a 400 error if password is missing', async () => {
         const email = 'test@test.com';
 
-        const response = await request
+        const response = await request(app)
             .post('/signUp')
             .send({ email })
-            .expect(400);
+            .expect(httpStatus.BAD_REQUEST);
 
         expect(response.body.message).toBe('"\password\" is required');
     });
@@ -60,10 +55,10 @@ describe('POST /signUp', () => {
         const email = 'invalid-email';
         const password = 'password';
 
-        const response = await request
+        const response = await request(app)
             .post('/signUp')
             .send({ email, password })
-            .expect(400);
+            .expect(httpStatus.BAD_REQUEST);
 
         expect(response.body.message).toBe('"\email\" must be a valid email');
     });
@@ -74,10 +69,10 @@ describe('POST /signUp', () => {
 
         await UserModel.create({ email, password });
 
-        const response = await request
+        const response = await request(app)
             .post('/signUp')
             .send({ email, password })
-            .expect(409);
+            .expect(httpStatus.CONFLICT);
 
         expect(response.text).toBe('Email is already registered!');
     });
