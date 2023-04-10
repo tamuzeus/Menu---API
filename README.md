@@ -60,7 +60,7 @@ npm i
 npm run watch, npm run redist ou npm run dev
 ```
 
-## Como carregar o dump de desenvolvimento (opcional):
+## Como carregar o dump de teste (opcional):
 
 1. No diretório aonde está o dump (Menu---API), abra o terminal.
 2. Digite o seguinte comando:
