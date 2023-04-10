@@ -57,7 +57,7 @@ npm i
 6. Execute o back-end em um ambiente de desenvolvimento:
 
 ```bash
-npm run watch, npm run redist ou npm run dev
+npm run watch, npm run redist ou npm run dev(caso tenha a pasta dist)
 ```
 
 ## Como carregar o dump de teste (opcional):
