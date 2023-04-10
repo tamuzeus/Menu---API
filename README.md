@@ -48,12 +48,12 @@ npm i
 6. Execute o back-end em um ambiente de desenvolvimento:
 
 ```bash
-npm run dev, npm run watch ou npm run redist
+npm run watch, npm run redist ou npm run dev
 ```
 
 ## Como executar testes:
 
-1. Configure o arquivo `.env` usando o `.env.example`.
+1. Configure o arquivo `.env.test` usando o `.env.example`.
 
 2. Execute os testes em um ambiente de desenvolvimento:
 
@@ -84,15 +84,14 @@ parent: bebidas
 name: Bebidas Alcoólicas
 ```
 
-
 3. products
 
 ```
 _id: "642fc0da7e293a2cce660615"
 categories: [{
-        "_id": "comidas",
-        "parent": null,
-        "name": "Comidas"
+        "_id": "alcoolicas",
+        "parent": "bebidas",
+        "name": "Bebidas Alcoólicas"
       }]
 name: Vinho Seco
 qty: 30
@@ -169,7 +168,6 @@ Em formato Bearer Token, deve ser enviado no header. Tem duração de 1h.
   }
 ]
 ```
-
 
 `GET /product`
 
@@ -287,7 +285,6 @@ Em formato Bearer Token, deve ser enviado no header. Tem duração de 1h.
   "__v": 0
 }
 ```
-
 
 `PATCH /product/:id`
 
