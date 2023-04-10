@@ -30,6 +30,15 @@ API tem como função gerenciar um cardápio online!
 6. MongoDB - Flexibilidade de esquema e suporte para operações em tempo real em dados não estruturados e semi-estruturados.
 7. Mongoose - Solução direta e baseada em esquemas para modelagem de dados de aplicativos.
 
+## Como carregar o dump de desenvolvimento (opcional):
+
+1. No diretório aonde está o dump (Menu---API), abra o terminal.
+2. Digite o seguinte comando:
+   
+```bash
+mongorestore --db Menu dump/Menu
+```
+
 ## Como executar em desenvolvimento:
 
 1. Clone este repositório.
@@ -49,6 +58,15 @@ npm i
 
 ```bash
 npm run watch, npm run redist ou npm run dev
+```
+
+## Como carregar o dump de desenvolvimento (opcional):
+
+1. No diretório aonde está o dump (Menu---API), abra o terminal.
+2. Digite o seguinte comando:
+   
+```bash
+mongorestore --db Menu-test dump/Menu-test
 ```
 
 ## Como executar testes:
