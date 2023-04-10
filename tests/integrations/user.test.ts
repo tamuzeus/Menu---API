@@ -18,16 +18,13 @@ describe('POST /signUp', () => {
     it('should create a new user', async () => {
         const email = 'test@test.com';
         const password = 'password';
-        const emailRegex = /"([^"]+)"/;
-
+      
         const response = await request(app)
             .post('/signUp')
             .send({ email, password })
             .expect(httpStatus.CREATED);
-        const responseText = response.body.user;
-        const match = responseText.match(emailRegex);
-        const userEmail = match ? match[1] : null;
-        expect(userEmail).toBe(email);
+        
+        expect(response.body.user.email).toBe(email);
     });
 
     it('should return a 400 error if email is missing', async () => {

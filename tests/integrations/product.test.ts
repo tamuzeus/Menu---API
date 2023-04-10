@@ -184,6 +184,7 @@ describe('DELETE /product/:id', () => {
 
         const response = await request(app)
             .delete(`/product/${product.body._id}`)
+            .set('Authorization', `Bearer ${token.token}`)
             .expect(httpStatus.OK);
 
         expect(response.body.deletedCount).toBe(`Product with id ${product.body._id} has been deleted`);
