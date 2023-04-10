@@ -76,7 +76,7 @@ mongorestore --db Menu-test dump/Menu-test
 2. Execute os testes em um ambiente de desenvolvimento:
 
 ```bash
-npm run test ou npx jest
+npm run test
 ```
 
 ## Informações do banco:
