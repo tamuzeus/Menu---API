@@ -1,8 +1,4 @@
-# Menu-API
 
-API Menu, teste para Desenvolvedor Node.
-API tem como função gerenciar um cardápio online!
-:)
 
 ## Sobre:
 
